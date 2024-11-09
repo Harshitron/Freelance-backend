@@ -1,0 +1,68 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+jspm_packages/
+
+# dotenv environment variables file
+.env
+
+# Directory for storing local environment variables
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+
+# Debugger settings
+.vscode/
+
+# IDE specific files
+.idea/
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Coverage directory for testing reports
+coverage/
+
+# Yarn Integrity files
+.yarn-integrity
+
+# Ignore yarn.lock or package-lock.json if using both Yarn and npm
+# Comment out whichever one you use
+yarn.lock
+package-lock.json
+
+# TypeScript build artifacts
+*.tsbuildinfo
+
+# Ignore build files created by Docker (if you're using Docker)
+docker-compose.yml
+Dockerfile
+.dockerignore
