@@ -5,19 +5,26 @@ const cors = require('cors');
 
 const app = express();
 
-// CORS configuration to allow requests only from your frontend's URL
+// CORS configuration to allow requests only from your frontend URLs
+const allowedOrigins = [process.env.FRONTEND_URL, process.env.FRONTEND_URL2];
 const corsOptions = {
-  origin: process.env.FRONTEND_URL, // Use environment variable
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   optionsSuccessStatus: 200,
 };
+
 app.use(cors(corsOptions));
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
-})
-.then(() => console.log('Connected to MongoDB'))
-.catch((error) => console.error('MongoDB connection error:', error));
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((error) => console.error('MongoDB connection error:', error));
 
 // Define a schema for the form data
 const formDataSchema = new mongoose.Schema({
