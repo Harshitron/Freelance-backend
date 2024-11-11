@@ -7,7 +7,7 @@ const app = express();
 
 // CORS configuration to allow requests only from your frontend's URL
 const corsOptions = {
-  origin: 'https://www.gksas.com', // Replace with your frontend URL
+  origin: process.env.FRONTEND_URL, // Use environment variable
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
